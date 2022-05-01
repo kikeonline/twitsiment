@@ -1,22 +1,19 @@
 import { GetStaticProps } from 'next'
 import Link from 'next/link'
 
-import { User } from '../../interfaces'
-import { sampleUserData } from '../../utils/sample-data'
+import { tweet } from '../../interfaces'
+// import { sampleUserData } from '../../utils/sample-data'
 import Layout from '../../components/Layout'
 import List from '../../components/List'
 
 type Props = {
-  items: User[]
+  items: tweet[]
 }
 
 const WithStaticProps = ({ items }: Props) => (
-  <Layout title="Users List | Next.js + TypeScript Example">
-    <h1>Users List</h1>
-    <p>
-      Example fetching data from inside <code>getStaticProps()</code>.
-    </p>
-    <p>You are currently on: /users</p>
+  <Layout title="Tweets | Twitsiment">
+    <h1>Tweet List</h1>
+    <p>tweets</p>
     <List items={items} />
     <p>
       <Link href="/">
@@ -30,7 +27,9 @@ export const getStaticProps: GetStaticProps = async () => {
   // Example for including static props in a Next.js function component page.
   // Don't forget to include the respective types for any props passed into
   // the component.
-  const items: User[] = sampleUserData
+  const res = await fetch('http://localhost:3000/api/tweets')
+  const tweets = await res.json()
+  const items: tweet[] = tweets
   return { props: { items } }
 }
 

@@ -1,15 +1,16 @@
 import * as React from 'react'
 
-import { User } from '../interfaces'
+import { tweet } from '../interfaces'
 
 type ListDetailProps = {
-  item: User
+  item: tweet
 }
 
-const ListDetail = ({ item: user }: ListDetailProps) => (
+const ListDetail = ({ item: tweet }: ListDetailProps) => (
   <div>
-    <h1>Detail for {user.name}</h1>
-    <p>ID: {user.id}</p>
+    <h1>Date: {tweet.created_at}</h1>
+    <p>ID: {tweet.id}</p>
+    <p>ID: {tweet.text}</p>
   </div>
 )
 

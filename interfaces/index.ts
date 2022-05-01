@@ -6,6 +6,6 @@
 
 export type tweet = {
   id: number
-  date: Date
-  tweet?: string
+  created_at: Date
+  text?: string
 }
