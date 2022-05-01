@@ -10,6 +10,8 @@
     "next": "latest",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "sentiment": "^5.0.2",
+    "sentiment-spanish": "^0.0.8",
     "twit": "^2.2.11",
     "twitter": "^1.7.1"
   },

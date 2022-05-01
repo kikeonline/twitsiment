@@ -10,8 +10,11 @@ type Props = {
 const ListItem = ({ data }: Props) => (
   <Link href="/tweet/[id]" as={`/tweet/${data.id}`}>
     <>
-      <p>{data.id}</p>
-      <p>{data.text}</p>
+      <p>ID: {data.id}</p>
+      <p>Date: {data.created_at}</p>
+      <p>Tweet: {data.text}</p>
+      <p>Score: {data.score}</p>
+      <p>Comparative: {data.comparative}</p>
     </>
   </Link>
 )

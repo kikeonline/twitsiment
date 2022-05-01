@@ -3,7 +3,7 @@ import Layout from '../components/Layout'
 
 const IndexPage = () => (
   <Layout title="Twitsiment">
-    <h1>Twitsiment 👋</h1>
+    <h1>Twitsiment 🐥</h1>
     <p></p>
   </Layout>
 )
