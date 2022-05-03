@@ -1,28 +1,14 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import { tweetUserData } from '../../../utils/sample-data'
+import { tweetUserData } from '../../../../utils/sample-data'
 import Twitter from 'twit';
-import Sentiment from 'sentiment';
 import lorca from 'lorca-nlp';
-import config from '../../../scripts/config';
+import config from '../../../../scripts/config';
 
-const sentiment = new Sentiment();
 const client = new Twitter(config);
-
-const getSentimentScore = (text: string, lang: string) => {
-  if (lang === 'es') {
-    const doc = lorca(text);
-    const score = doc.sentiment();
-    return score;
-  } else {
-    const result = sentiment.analyze(text);
-    const { score } = result;
-    return score;
-  }
-}
 
 const handler = (_req: NextApiRequest, res: NextApiResponse) => {
   const params = {
-    screen_name: 'itsjuanmatus',
+    screen_name: 'kikeonline',
     count: 5,
   };
   try {
@@ -30,9 +16,11 @@ const handler = (_req: NextApiRequest, res: NextApiResponse) => {
       if (!error) {
         const twitsiment = tweets.map(tweet => {
           const { id, create_at, text, lang } = tweet;
-          const score = getSentimentScore(text, lang);
-          return { id, create_at, tweet: text, sentiment_score: score, lang };
-        });
+          const doc = lorca(text);
+          const score = doc.sentiment();
+
+          return { id, create_at, text, score, lang };
+        })
         res.status(200).json(twitsiment)
       }
     });
