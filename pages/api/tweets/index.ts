@@ -22,16 +22,17 @@ const getSentimentScore = (text: string, lang: string) => {
 
 const handler = (_req: NextApiRequest, res: NextApiResponse) => {
   const params = {
-    screen_name: 'itsjuanmatus',
-    count: 5,
+    screen_name: 'kikeonline',
+    include_rts: false,
+    count: 1500,
   };
   try {
     client.get('statuses/user_timeline', params, function(error, tweets, response) {
       if (!error) {
         const twitsiment = tweets.map(tweet => {
-          const { id, create_at, text, lang } = tweet;
+          const { id, created_at, text, lang } = tweet;
           const score = getSentimentScore(text, lang);
-          return { id, create_at, tweet: text, sentiment_score: score, lang };
+          return { id, created_at, tweet: text, sentiment_score: score, lang };
         });
         res.status(200).json(twitsiment)
       }

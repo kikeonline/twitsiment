@@ -12,9 +12,9 @@ const ListItem = ({ data }: Props) => (
     <>
       <p>ID: {data.id}</p>
       <p>Date: {data.created_at}</p>
-      <p>Tweet: {data.text}</p>
-      <p>Score: {data.score}</p>
-      <p>Comparative: {data.comparative}</p>
+      <p>Tweet: {data.tweet}</p>
+      <p>Score: {data.sentiment_score}</p>
+      <p>Lang: {data.lang}</p>
     </>
   </Link>
 )

@@ -7,7 +7,7 @@
 export type tweet = {
   id: number
   created_at: Date
-  text?: string
-  score: number
-  comparative: number
+  tweet?: string
+  sentiment_score: number
+  lang: number
 }
