@@ -1,6 +1,6 @@
 # Twitsiment
 
-Sentiment analysis in tweets.
+Sentiment analysis for tweets.
 
 <img width="1061" alt="Screen Shot 2022-05-04 at 7 02 11 PM" src="https://user-images.githubusercontent.com/14955573/166850105-3531758a-9286-45c4-98ae-37903bea360e.png">
 
